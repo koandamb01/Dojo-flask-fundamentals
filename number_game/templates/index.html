@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <!-- my CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Great Number Game</title>
+</head>
+<body>
+    <div class="container">
+        <h2>***** Welcome to the Great Number Game *****</h2>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        <h3> 
+            {{ try }}
+            {% if try <= 1: %}
+                try
+            {% else: %}
+                tries
+            {% endif %}
+        </h3>
+
+        
+        {% if 'answer' in session: %}
+            <!-- when the user answer at least once -->
+            {% if answer == 'wrong': %}
+                <div class="wrong">
+                    <h1>{{ hint }}</h1>
+                </div>
+
+                <form action="/check" method="POST">
+                    <input type="text" name="user_number" required>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </form>
+            {% else: %}
+                <div class="right">
+                    <h3>{{ guess_number }} was the number!</h3>
+                    <a href="/replay">
+                        <button class="btn btn-primary">Play again!</button>
+                    </a>
+                </div>
+            {% endif %}
+        
+            <!-- When the user first load the page -->
+        {% else: %}
+            <form action="/check" method="POST">
+                <input type="text" name="user_number" required>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        {% endif %}
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    padding-top: 30px !important;
+    text-align: center;
+}
+
+h2{
+    color: red;
+}
+
+.container p{
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.container input{
+    display: block;
+    width: 90px;
+    margin: auto;
+}
+
+.container button{
+    margin-top: 10px;
+    box-shadow: 2px 2px grey;
+}
+
+.container .wrong {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 75px;
+    background-color: red;
+    color: white;
+    border: 1px solid black;
+}
+
+.container .right {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    margin-bottom: 20px;
+    padding-top: 50px;
+    background-color: rgb(6, 143, 6);
+    color: white;
+    border: 1px solid black;
+}
+
+
+
+
+
